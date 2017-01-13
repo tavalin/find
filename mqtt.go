@@ -8,11 +8,11 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	//"io/ioutil"
 	"log"
 	"net/http"
-	"os"
-	"os/exec"
+	//"os"
+	//"os/exec"
 	"path"
 	"strconv"
 	"strings"
@@ -120,6 +120,7 @@ func getMQTT(group string) (string, error) {
 }
 
 func updateMosquittoConfig() {
+/*
 	db, err := bolt.Open(path.Join(RuntimeArgs.Cwd, "global.db"), 0600, nil)
 	if err != nil {
 		Error.Println(err)
@@ -163,6 +164,7 @@ func updateMosquittoConfig() {
 	if err = exec.Command(cmd, args...).Run(); err != nil {
 		Warning.Println(err)
 	}
+*/
 }
 
 func sendMQTTLocation(message string, group string, user string) error {

@@ -27,18 +27,18 @@ RUN cp svm-train /usr/local/bin/
 RUN rm -rf *
 
 # Install mosquitto
-RUN apt-get install -y mosquitto-clients mosquitto
+#RUN apt-get install -y mosquitto-clients mosquitto
 
 # Install FIND
 WORKDIR "/root"
-RUN git clone https://github.com/schollz/find.git
-RUN go get github.com/schollz/find
+RUN git clone https://github.com/tavalin/find.git
+RUN go get github.com/tavalin/find
 RUN go get github.com/BurntSushi/toml
 WORKDIR "/root/find"
-RUN mkdir mosquitto
-RUN touch mosquitto/conf
+#RUN mkdir mosquitto
+#RUN touch mosquitto/conf
 RUN git checkout dev
-RUN echo "\ninclude_dir /root/find/mosquitto" >> /etc/mosquitto/mosquitto.conf
+#RUN echo "\ninclude_dir /root/find/mosquitto" >> /etc/mosquitto/mosquitto.conf
 RUN go build -o findserver
 
 # Old entrypoint
